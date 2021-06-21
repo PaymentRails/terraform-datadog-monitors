@@ -99,8 +99,7 @@ resource "datadog_monitor" "rds_connection_variance" {
 
   query = <<EOQ
   ${var.connection_variance_time_aggregator}(${var.connection_variance_timeframe}): (
-    anomalies(avg:aws.rds.replica_lag${module.filter-tags.query_alert} by {region,name}, 
-          2, direction='both', alert_window='last_15m', interval=60, count_default_zero='true') >=
+    anomalies(avg:aws.rds.database_connections${module.filter-tags.query_alert} by {dbinstanceidentifier}, 'basic', 2, direction='both', alert_window='last_15m', interval=60, count_default_zero='true')
   ) > ${var.connection_variance_threshold_critical}
 EOQ
 
