@@ -32,10 +32,6 @@ resource "datadog_monitor" "pct_errors" {
   locked              = false
 
   tags = concat(["env:${var.environment}", "type:cloud", "provider:aws", "resource:lambda", "team:claranet", "created-by:terraform"], var.pct_errors_extra_tags)
-
-  lifecycle {
-    ignore_changes = [silenced]
-  }
 }
 
 # Errors Absolute Value
