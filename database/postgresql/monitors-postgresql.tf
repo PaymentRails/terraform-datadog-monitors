@@ -83,7 +83,7 @@ EOQ
 }
 
 resource "datadog_monitor" "postgresql_disk_queue_depth" {
-  count   = var.postgresql_disk_queue_depth_enabled ? 1 : 0
+  count   = var.postgresql_disk_queue_enabled ? 1 : 0
   name    = "${var.prefix_slug == "" ? "" : "[${var.prefix_slug}]"}[${var.environment}] PostgreSQL disk queue depth {{#is_alert}}{{{comparator}}} {{threshold}} ({{value}}){{/is_alert}}{{#is_warning}}{{{comparator}}} {{warn_threshold}} ({{value}}){{/is_warning}}"
   message = coalesce(var.postgresql_disk_queue_message, var.message)
   type    = "query alert"
