@@ -25,54 +25,54 @@ Creates DataDog monitors with the following checks:
 
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| terraform | >= 0.12.26 |
+| Name      | Version  |
+| --------- | -------- |
+| terraform | >= 1.0.0 |
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| environment | Architecture environment | `any` | n/a | yes |
-| evaluation\_delay | Delay in seconds for the metric evaluation | `number` | `15` | no |
-| filter\_tags\_custom | Tags used for custom filtering when filter\_tags\_use\_defaults is false | `string` | `"*"` | no |
-| filter\_tags\_custom\_excluded | Tags excluded for custom filtering when filter\_tags\_use\_defaults is false | `string` | `""` | no |
-| filter\_tags\_use\_defaults | Use default filter tags convention | `string` | `"true"` | no |
-| message | Message sent when a monitor is triggered | `any` | n/a | yes |
-| new\_host\_delay | Delay in seconds before monitor new resource | `number` | `300` | no |
-| notify\_no\_data | Will raise no data alert if set to true | `bool` | `true` | no |
-| prefix\_slug | Prefix string to prepend between brackets on every monitors names | `string` | `""` | no |
-| velero\_backup\_deletion\_failure\_enabled | Flag to enable Velero backup deletion failure monitor | `string` | `"true"` | no |
-| velero\_backup\_deletion\_failure\_extra\_tags | Extra tags for Velero backup deletion failure monitor | `list(string)` | `[]` | no |
-| velero\_backup\_deletion\_failure\_monitor\_message | Custom message for Velero backup deletion failure monitor | `string` | `""` | no |
-| velero\_backup\_deletion\_failure\_monitor\_timeframe | Monitor timeframe for Velero backup deletion failure monitor [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | `string` | `"last_1d"` | no |
-| velero\_backup\_failure\_enabled | Flag to enable Velero backup failure monitor | `string` | `"true"` | no |
-| velero\_backup\_failure\_extra\_tags | Extra tags for Velero backup failure monitor | `list(string)` | `[]` | no |
-| velero\_backup\_failure\_monitor\_message | Custom message for Velero backup failure monitor | `string` | `""` | no |
-| velero\_backup\_failure\_monitor\_timeframe | Monitor timeframe for Velero backup failure monitor [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | `string` | `"last_1d"` | no |
-| velero\_backup\_partial\_failure\_enabled | Flag to enable Velero backup partial failure monitor | `string` | `"true"` | no |
-| velero\_backup\_partial\_failure\_extra\_tags | Extra tags for Velero backup partial failure monitor | `list(string)` | `[]` | no |
-| velero\_backup\_partial\_failure\_monitor\_message | Custom message for Velero backup partial failure monitor | `string` | `""` | no |
-| velero\_backup\_partial\_failure\_monitor\_timeframe | Monitor timeframe for Velero backup partial failure monitor [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | `string` | `"last_1d"` | no |
-| velero\_scheduled\_backup\_missing\_enabled | Flag to enable Velero scheduled backup missing monitor | `string` | `"true"` | no |
-| velero\_scheduled\_backup\_missing\_extra\_tags | Extra tags for Velero scheduled backup missing monitor | `list(string)` | `[]` | no |
-| velero\_scheduled\_backup\_missing\_monitor\_message | Custom message for Velero scheduled backup missing monitor | `string` | `""` | no |
-| velero\_scheduled\_backup\_missing\_monitor\_no\_data\_timeframe | No data timeframe in minutes | `number` | `2880` | no |
-| velero\_scheduled\_backup\_missing\_monitor\_timeframe | Monitor timeframe for Velero scheduled backup missing monitor [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | `string` | `"last_1d"` | no |
-| velero\_volume\_snapshot\_failure\_enabled | Flag to enable Velero volume snapshot failure monitor | `string` | `"true"` | no |
-| velero\_volume\_snapshot\_failure\_extra\_tags | Extra tags for Velero volume snapshot failure monitor | `list(string)` | `[]` | no |
-| velero\_volume\_snapshot\_failure\_monitor\_message | Custom message for Velero volume snapshot failure monitor | `string` | `""` | no |
-| velero\_volume\_snapshot\_failure\_monitor\_timeframe | Monitor timeframe for Velero volume snapshot failure monitor [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | `string` | `"last_1d"` | no |
+| Name                                                      | Description                                                                                                                                             | Type           | Default     | Required |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------- | :------: |
+| environment                                               | Architecture environment                                                                                                                                | `any`          | n/a         |   yes    |
+| evaluation_delay                                          | Delay in seconds for the metric evaluation                                                                                                              | `number`       | `15`        |    no    |
+| filter_tags_custom                                        | Tags used for custom filtering when filter_tags_use_defaults is false                                                                                   | `string`       | `"*"`       |    no    |
+| filter_tags_custom_excluded                               | Tags excluded for custom filtering when filter_tags_use_defaults is false                                                                               | `string`       | `""`        |    no    |
+| filter_tags_use_defaults                                  | Use default filter tags convention                                                                                                                      | `string`       | `"true"`    |    no    |
+| message                                                   | Message sent when a monitor is triggered                                                                                                                | `any`          | n/a         |   yes    |
+| new_host_delay                                            | Delay in seconds before monitor new resource                                                                                                            | `number`       | `300`       |    no    |
+| notify_no_data                                            | Will raise no data alert if set to true                                                                                                                 | `bool`         | `true`      |    no    |
+| prefix_slug                                               | Prefix string to prepend between brackets on every monitors names                                                                                       | `string`       | `""`        |    no    |
+| velero_backup_deletion_failure_enabled                    | Flag to enable Velero backup deletion failure monitor                                                                                                   | `string`       | `"true"`    |    no    |
+| velero_backup_deletion_failure_extra_tags                 | Extra tags for Velero backup deletion failure monitor                                                                                                   | `list(string)` | `[]`        |    no    |
+| velero_backup_deletion_failure_monitor_message            | Custom message for Velero backup deletion failure monitor                                                                                               | `string`       | `""`        |    no    |
+| velero_backup_deletion_failure_monitor_timeframe          | Monitor timeframe for Velero backup deletion failure monitor [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`]  | `string`       | `"last_1d"` |    no    |
+| velero_backup_failure_enabled                             | Flag to enable Velero backup failure monitor                                                                                                            | `string`       | `"true"`    |    no    |
+| velero_backup_failure_extra_tags                          | Extra tags for Velero backup failure monitor                                                                                                            | `list(string)` | `[]`        |    no    |
+| velero_backup_failure_monitor_message                     | Custom message for Velero backup failure monitor                                                                                                        | `string`       | `""`        |    no    |
+| velero_backup_failure_monitor_timeframe                   | Monitor timeframe for Velero backup failure monitor [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`]           | `string`       | `"last_1d"` |    no    |
+| velero_backup_partial_failure_enabled                     | Flag to enable Velero backup partial failure monitor                                                                                                    | `string`       | `"true"`    |    no    |
+| velero_backup_partial_failure_extra_tags                  | Extra tags for Velero backup partial failure monitor                                                                                                    | `list(string)` | `[]`        |    no    |
+| velero_backup_partial_failure_monitor_message             | Custom message for Velero backup partial failure monitor                                                                                                | `string`       | `""`        |    no    |
+| velero_backup_partial_failure_monitor_timeframe           | Monitor timeframe for Velero backup partial failure monitor [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`]   | `string`       | `"last_1d"` |    no    |
+| velero_scheduled_backup_missing_enabled                   | Flag to enable Velero scheduled backup missing monitor                                                                                                  | `string`       | `"true"`    |    no    |
+| velero_scheduled_backup_missing_extra_tags                | Extra tags for Velero scheduled backup missing monitor                                                                                                  | `list(string)` | `[]`        |    no    |
+| velero_scheduled_backup_missing_monitor_message           | Custom message for Velero scheduled backup missing monitor                                                                                              | `string`       | `""`        |    no    |
+| velero_scheduled_backup_missing_monitor_no_data_timeframe | No data timeframe in minutes                                                                                                                            | `number`       | `2880`      |    no    |
+| velero_scheduled_backup_missing_monitor_timeframe         | Monitor timeframe for Velero scheduled backup missing monitor [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | `string`       | `"last_1d"` |    no    |
+| velero_volume_snapshot_failure_enabled                    | Flag to enable Velero volume snapshot failure monitor                                                                                                   | `string`       | `"true"`    |    no    |
+| velero_volume_snapshot_failure_extra_tags                 | Extra tags for Velero volume snapshot failure monitor                                                                                                   | `list(string)` | `[]`        |    no    |
+| velero_volume_snapshot_failure_monitor_message            | Custom message for Velero volume snapshot failure monitor                                                                                               | `string`       | `""`        |    no    |
+| velero_volume_snapshot_failure_monitor_timeframe          | Monitor timeframe for Velero volume snapshot failure monitor [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`]  | `string`       | `"last_1d"` |    no    |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| velero\_backup\_deletion\_failure\_id | id for monitor velero\_backup\_deletion\_failure |
-| velero\_backup\_failure\_id | id for monitor velero\_backup\_failure |
-| velero\_backup\_partial\_failure\_id | id for monitor velero\_backup\_partial\_failure |
-| velero\_scheduled\_backup\_missing\_id | id for monitor velero\_scheduled\_backup\_missing |
-| velero\_volume\_snapshot\_failure\_id | id for monitor velero\_volume\_snapshot\_failure |
+| Name                               | Description                                    |
+| ---------------------------------- | ---------------------------------------------- |
+| velero_backup_deletion_failure_id  | id for monitor velero_backup_deletion_failure  |
+| velero_backup_failure_id           | id for monitor velero_backup_failure           |
+| velero_backup_partial_failure_id   | id for monitor velero_backup_partial_failure   |
+| velero_scheduled_backup_missing_id | id for monitor velero_scheduled_backup_missing |
+| velero_volume_snapshot_failure_id  | id for monitor velero_volume_snapshot_failure  |
 
 ## Related documentation
 
@@ -81,9 +81,11 @@ Documentation for Datadog OpenMetrics integration: https://docs.datadoghq.com/in
 Documentation for Datadog autodiscovery: https://docs.datadoghq.com/agent/autodiscovery/clusterchecks/
 
 ### How to configure Datadog agent for these monitors ?
+
 You can configure Datadog agent by autodiscovery pod annotations or by configuration file.
 
 #### Configuration by autodiscovery pod annotations
+
 Add these annotations to Velero pods:
 
 ```
@@ -95,6 +97,7 @@ podAnnotations: {
 ```
 
 #### Configuration by configuration file
+
 Example of `openmetrics.d/conf.yaml`:
 
 ```
@@ -150,4 +153,3 @@ For instance, for an hourly schedule you can uncomment this block:
 #  velero_volume_snapshot_failure_enabled                    = false
 #}
 ```
-

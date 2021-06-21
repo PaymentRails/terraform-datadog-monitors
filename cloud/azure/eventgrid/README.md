@@ -23,51 +23,51 @@ Creates DataDog monitors with the following checks:
 
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| terraform | >= 0.12.26 |
+| Name      | Version  |
+| --------- | -------- |
+| terraform | >= 1.0.0 |
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| environment | Architecture environment | `string` | n/a | yes |
-| evaluation\_delay | Delay in seconds for the metric evaluation | `number` | `900` | no |
-| eventgrid\_no\_successful\_message\_no\_data\_timeframe | Number of minutes before reporting no data | `string` | `10` | no |
-| failed\_messages\_rate\_enabled | Flag to enable Event Grid failed messages monitor | `string` | `"true"` | no |
-| failed\_messages\_rate\_extra\_tags | Extra tags for Event Grid failed messages monitor | `list(string)` | `[]` | no |
-| failed\_messages\_rate\_message | Custom message for Event Grid failed messages monitor | `string` | `""` | no |
-| failed\_messages\_rate\_thresold\_critical | Failed messages ratio (percentage) to trigger the critical alert | `number` | `90` | no |
-| failed\_messages\_rate\_thresold\_warning | Failed messages ratio (percentage) to trigger a warning alert | `number` | `50` | no |
-| failed\_messages\_rate\_time\_aggregator | Monitor aggregator for Event Grid failed messages [available values: min, max or avg] | `string` | `"min"` | no |
-| failed\_messages\_rate\_timeframe | Monitor timeframe for Event Grid failed messages [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | `string` | `"last_5m"` | no |
-| filter\_tags\_custom | Tags used for custom filtering when filter\_tags\_use\_defaults is false | `string` | `"*"` | no |
-| filter\_tags\_custom\_excluded | Tags excluded for custom filtering when filter\_tags\_use\_defaults is false | `string` | `""` | no |
-| filter\_tags\_use\_defaults | Use default filter tags convention | `string` | `"true"` | no |
-| message | Message sent when an alert is triggered | `any` | n/a | yes |
-| new\_host\_delay | Delay in seconds before monitor new resource | `number` | `300` | no |
-| no\_successful\_message\_rate\_enabled | Flag to enable Event Grid no successful message monitor | `string` | `"true"` | no |
-| no\_successful\_message\_rate\_extra\_tags | Extra tags for Event Grid no successful message monitor | `list(string)` | `[]` | no |
-| no\_successful\_message\_rate\_message | Custom message for Event Grid no successful message monitor | `string` | `""` | no |
-| no\_successful\_message\_rate\_time\_aggregator | Monitor aggregator for Event Grid no successful message [available values: min, max or avg] | `string` | `"min"` | no |
-| no\_successful\_message\_rate\_timeframe | Monitor timeframe for Event Grid no successful message [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | `string` | `"last_5m"` | no |
-| notify\_no\_data | Will raise no data alert if set to true | `bool` | `true` | no |
-| prefix\_slug | Prefix string to prepend between brackets on every monitors names | `string` | `""` | no |
-| unmatched\_events\_rate\_enabled | Flag to enable Event Grid unmatched events monitor | `string` | `"true"` | no |
-| unmatched\_events\_rate\_extra\_tags | Extra tags for Event Grid unmatched events monitor | `list(string)` | `[]` | no |
-| unmatched\_events\_rate\_message | Custom message for Event Grid unmatched events monitor | `string` | `""` | no |
-| unmatched\_events\_rate\_thresold\_critical | Unmatched events ratio (percentage) to trigger the critical alert | `number` | `90` | no |
-| unmatched\_events\_rate\_thresold\_warning | Unmatched events ratio (percentage) to trigger a warning alert | `number` | `50` | no |
-| unmatched\_events\_rate\_time\_aggregator | Monitor aggregator for Event Grid unmatched events [available values: min, max or avg] | `string` | `"min"` | no |
-| unmatched\_events\_rate\_timeframe | Monitor timeframe for Event Grid unmatched events [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | `string` | `"last_5m"` | no |
+| Name                                              | Description                                                                                                                                      | Type           | Default     | Required |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | ----------- | :------: |
+| environment                                       | Architecture environment                                                                                                                         | `string`       | n/a         |   yes    |
+| evaluation_delay                                  | Delay in seconds for the metric evaluation                                                                                                       | `number`       | `900`       |    no    |
+| eventgrid_no_successful_message_no_data_timeframe | Number of minutes before reporting no data                                                                                                       | `string`       | `10`        |    no    |
+| failed_messages_rate_enabled                      | Flag to enable Event Grid failed messages monitor                                                                                                | `string`       | `"true"`    |    no    |
+| failed_messages_rate_extra_tags                   | Extra tags for Event Grid failed messages monitor                                                                                                | `list(string)` | `[]`        |    no    |
+| failed_messages_rate_message                      | Custom message for Event Grid failed messages monitor                                                                                            | `string`       | `""`        |    no    |
+| failed_messages_rate_thresold_critical            | Failed messages ratio (percentage) to trigger the critical alert                                                                                 | `number`       | `90`        |    no    |
+| failed_messages_rate_thresold_warning             | Failed messages ratio (percentage) to trigger a warning alert                                                                                    | `number`       | `50`        |    no    |
+| failed_messages_rate_time_aggregator              | Monitor aggregator for Event Grid failed messages [available values: min, max or avg]                                                            | `string`       | `"min"`     |    no    |
+| failed_messages_rate_timeframe                    | Monitor timeframe for Event Grid failed messages [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`]       | `string`       | `"last_5m"` |    no    |
+| filter_tags_custom                                | Tags used for custom filtering when filter_tags_use_defaults is false                                                                            | `string`       | `"*"`       |    no    |
+| filter_tags_custom_excluded                       | Tags excluded for custom filtering when filter_tags_use_defaults is false                                                                        | `string`       | `""`        |    no    |
+| filter_tags_use_defaults                          | Use default filter tags convention                                                                                                               | `string`       | `"true"`    |    no    |
+| message                                           | Message sent when an alert is triggered                                                                                                          | `any`          | n/a         |   yes    |
+| new_host_delay                                    | Delay in seconds before monitor new resource                                                                                                     | `number`       | `300`       |    no    |
+| no_successful_message_rate_enabled                | Flag to enable Event Grid no successful message monitor                                                                                          | `string`       | `"true"`    |    no    |
+| no_successful_message_rate_extra_tags             | Extra tags for Event Grid no successful message monitor                                                                                          | `list(string)` | `[]`        |    no    |
+| no_successful_message_rate_message                | Custom message for Event Grid no successful message monitor                                                                                      | `string`       | `""`        |    no    |
+| no_successful_message_rate_time_aggregator        | Monitor aggregator for Event Grid no successful message [available values: min, max or avg]                                                      | `string`       | `"min"`     |    no    |
+| no_successful_message_rate_timeframe              | Monitor timeframe for Event Grid no successful message [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | `string`       | `"last_5m"` |    no    |
+| notify_no_data                                    | Will raise no data alert if set to true                                                                                                          | `bool`         | `true`      |    no    |
+| prefix_slug                                       | Prefix string to prepend between brackets on every monitors names                                                                                | `string`       | `""`        |    no    |
+| unmatched_events_rate_enabled                     | Flag to enable Event Grid unmatched events monitor                                                                                               | `string`       | `"true"`    |    no    |
+| unmatched_events_rate_extra_tags                  | Extra tags for Event Grid unmatched events monitor                                                                                               | `list(string)` | `[]`        |    no    |
+| unmatched_events_rate_message                     | Custom message for Event Grid unmatched events monitor                                                                                           | `string`       | `""`        |    no    |
+| unmatched_events_rate_thresold_critical           | Unmatched events ratio (percentage) to trigger the critical alert                                                                                | `number`       | `90`        |    no    |
+| unmatched_events_rate_thresold_warning            | Unmatched events ratio (percentage) to trigger a warning alert                                                                                   | `number`       | `50`        |    no    |
+| unmatched_events_rate_time_aggregator             | Monitor aggregator for Event Grid unmatched events [available values: min, max or avg]                                                           | `string`       | `"min"`     |    no    |
+| unmatched_events_rate_timeframe                   | Monitor timeframe for Event Grid unmatched events [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`]      | `string`       | `"last_5m"` |    no    |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| eventgrid\_failed\_messages\_id | id for monitor eventgrid\_failed\_messages |
-| eventgrid\_no\_successful\_message\_id | id for monitor eventgrid\_no\_successful\_message |
-| eventgrid\_unmatched\_events\_id | id for monitor eventgrid\_unmatched\_events |
+| Name                               | Description                                    |
+| ---------------------------------- | ---------------------------------------------- |
+| eventgrid_failed_messages_id       | id for monitor eventgrid_failed_messages       |
+| eventgrid_no_successful_message_id | id for monitor eventgrid_no_successful_message |
+| eventgrid_unmatched_events_id      | id for monitor eventgrid_unmatched_events      |
 
 ## Related documentation
 

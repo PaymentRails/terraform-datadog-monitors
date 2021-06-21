@@ -23,51 +23,51 @@ Creates DataDog monitors with the following checks:
 
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| terraform | >= 0.12.26 |
+| Name      | Version  |
+| --------- | -------- |
+| terraform | >= 1.0.0 |
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| artificial\_requests\_count | Number of false requests used to mitigate false positive in case of low trafic | `number` | `5` | no |
-| environment | Environment | `string` | n/a | yes |
-| evaluation\_delay | Delay in seconds for the metric evaluation | `number` | `900` | no |
-| filter\_tags | Tags used for filtering | `string` | `"*"` | no |
-| http\_4xx\_requests\_enabled | Flag to enable API Gateway HTTP 4xx requests monitor | `string` | `"true"` | no |
-| http\_4xx\_requests\_extra\_tags | Extra tags for API Gateway HTTP 4xx requests monitor | `list(string)` | `[]` | no |
-| http\_4xx\_requests\_message | Custom message for API Gateway HTTP 4xx requests monitor | `string` | `""` | no |
-| http\_4xx\_requests\_threshold\_critical | Maximum critical acceptable percent of 4xx errors | `number` | `30` | no |
-| http\_4xx\_requests\_threshold\_warning | Maximum warning acceptable percent of 4xx errors | `number` | `15` | no |
-| http\_4xx\_requests\_time\_aggregator | Monitor aggregator for API HTTP 4xx requests [available values: min, max or avg] | `string` | `"min"` | no |
-| http\_4xx\_requests\_timeframe | Monitor timeframe for API HTTP 4xx requests [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | `string` | `"last_5m"` | no |
-| http\_5xx\_requests\_enabled | Flag to enable API Gateway HTTP 5xx requests monitor | `string` | `"true"` | no |
-| http\_5xx\_requests\_extra\_tags | Extra tags for API Gateway HTTP 5xx requests monitor | `list(string)` | `[]` | no |
-| http\_5xx\_requests\_message | Custom message for API Gateway HTTP 5xx requests monitor | `string` | `""` | no |
-| http\_5xx\_requests\_threshold\_critical | Maximum critical acceptable percent of 5xx errors | `number` | `20` | no |
-| http\_5xx\_requests\_threshold\_warning | Maximum warning acceptable percent of 5xx errors | `number` | `10` | no |
-| http\_5xx\_requests\_time\_aggregator | Monitor aggregator for API HTTP 5xx requests [available values: min, max or avg] | `string` | `"min"` | no |
-| http\_5xx\_requests\_timeframe | Monitor timeframe for API HTTP 5xx requests [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | `string` | `"last_5m"` | no |
-| latency\_enabled | Flag to enable API Gateway latency monitor | `string` | `"true"` | no |
-| latency\_extra\_tags | Extra tags for API Gateway latency monitor | `list(string)` | `[]` | no |
-| latency\_message | Custom message for API Gateway latency monitor | `string` | `""` | no |
-| latency\_threshold\_critical | Alerting threshold in milliseconds | `number` | `3000` | no |
-| latency\_threshold\_warning | Warning threshold in milliseconds | `number` | `1000` | no |
-| latency\_time\_aggregator | Monitor aggregator for API Gateway latency [available values: min, max or avg] | `string` | `"min"` | no |
-| latency\_timeframe | Monitor timeframe for API latency [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | `string` | `"last_5m"` | no |
-| message | Message sent when a monitor is triggered | `any` | n/a | yes |
-| new\_host\_delay | Delay in seconds before monitor new resource | `number` | `300` | no |
-| notify\_no\_data | Will raise no data alert if set to true | `bool` | `true` | no |
-| prefix\_slug | Prefix string to prepend between brackets on every monitors names | `string` | `""` | no |
+| Name                                 | Description                                                                                                                           | Type           | Default     | Required |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------- | :------: |
+| artificial_requests_count            | Number of false requests used to mitigate false positive in case of low trafic                                                        | `number`       | `5`         |    no    |
+| environment                          | Environment                                                                                                                           | `string`       | n/a         |   yes    |
+| evaluation_delay                     | Delay in seconds for the metric evaluation                                                                                            | `number`       | `900`       |    no    |
+| filter_tags                          | Tags used for filtering                                                                                                               | `string`       | `"*"`       |    no    |
+| http_4xx_requests_enabled            | Flag to enable API Gateway HTTP 4xx requests monitor                                                                                  | `string`       | `"true"`    |    no    |
+| http_4xx_requests_extra_tags         | Extra tags for API Gateway HTTP 4xx requests monitor                                                                                  | `list(string)` | `[]`        |    no    |
+| http_4xx_requests_message            | Custom message for API Gateway HTTP 4xx requests monitor                                                                              | `string`       | `""`        |    no    |
+| http_4xx_requests_threshold_critical | Maximum critical acceptable percent of 4xx errors                                                                                     | `number`       | `30`        |    no    |
+| http_4xx_requests_threshold_warning  | Maximum warning acceptable percent of 4xx errors                                                                                      | `number`       | `15`        |    no    |
+| http_4xx_requests_time_aggregator    | Monitor aggregator for API HTTP 4xx requests [available values: min, max or avg]                                                      | `string`       | `"min"`     |    no    |
+| http_4xx_requests_timeframe          | Monitor timeframe for API HTTP 4xx requests [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | `string`       | `"last_5m"` |    no    |
+| http_5xx_requests_enabled            | Flag to enable API Gateway HTTP 5xx requests monitor                                                                                  | `string`       | `"true"`    |    no    |
+| http_5xx_requests_extra_tags         | Extra tags for API Gateway HTTP 5xx requests monitor                                                                                  | `list(string)` | `[]`        |    no    |
+| http_5xx_requests_message            | Custom message for API Gateway HTTP 5xx requests monitor                                                                              | `string`       | `""`        |    no    |
+| http_5xx_requests_threshold_critical | Maximum critical acceptable percent of 5xx errors                                                                                     | `number`       | `20`        |    no    |
+| http_5xx_requests_threshold_warning  | Maximum warning acceptable percent of 5xx errors                                                                                      | `number`       | `10`        |    no    |
+| http_5xx_requests_time_aggregator    | Monitor aggregator for API HTTP 5xx requests [available values: min, max or avg]                                                      | `string`       | `"min"`     |    no    |
+| http_5xx_requests_timeframe          | Monitor timeframe for API HTTP 5xx requests [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | `string`       | `"last_5m"` |    no    |
+| latency_enabled                      | Flag to enable API Gateway latency monitor                                                                                            | `string`       | `"true"`    |    no    |
+| latency_extra_tags                   | Extra tags for API Gateway latency monitor                                                                                            | `list(string)` | `[]`        |    no    |
+| latency_message                      | Custom message for API Gateway latency monitor                                                                                        | `string`       | `""`        |    no    |
+| latency_threshold_critical           | Alerting threshold in milliseconds                                                                                                    | `number`       | `3000`      |    no    |
+| latency_threshold_warning            | Warning threshold in milliseconds                                                                                                     | `number`       | `1000`      |    no    |
+| latency_time_aggregator              | Monitor aggregator for API Gateway latency [available values: min, max or avg]                                                        | `string`       | `"min"`     |    no    |
+| latency_timeframe                    | Monitor timeframe for API latency [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`]           | `string`       | `"last_5m"` |    no    |
+| message                              | Message sent when a monitor is triggered                                                                                              | `any`          | n/a         |   yes    |
+| new_host_delay                       | Delay in seconds before monitor new resource                                                                                          | `number`       | `300`       |    no    |
+| notify_no_data                       | Will raise no data alert if set to true                                                                                               | `bool`         | `true`      |    no    |
+| prefix_slug                          | Prefix string to prepend between brackets on every monitors names                                                                     | `string`       | `""`        |    no    |
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| API\_Gateway\_latency\_id | id for monitor API\_Gateway\_latency |
-| API\_http\_4xx\_errors\_count\_id | id for monitor API\_http\_4xx\_errors\_count |
-| API\_http\_5xx\_errors\_count\_id | id for monitor API\_http\_5xx\_errors\_count |
+| Name                         | Description                              |
+| ---------------------------- | ---------------------------------------- |
+| API_Gateway_latency_id       | id for monitor API_Gateway_latency       |
+| API_http_4xx_errors_count_id | id for monitor API_http_4xx_errors_count |
+| API_http_5xx_errors_count_id | id for monitor API_http_5xx_errors_count |
 
 ## Related documentation
 

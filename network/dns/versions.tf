@@ -4,5 +4,5 @@ terraform {
       source = "terraform-providers/datadog"
     }
   }
-  required_version = ">= 0.12.26"
+  required_version = ">= 1.0.0"
 }
