@@ -175,6 +175,5 @@ EOQ
   include_tags        = true
 
   tags = concat(["env:${var.environment}", "type:cloud", "provider:aws", "resource:alb", "team:claranet", "created-by:terraform"], var.httpcode_target_4xx_extra_tags)
-
 }
 
