@@ -205,7 +205,7 @@ variable "connection_variance_message" {
   default     = ""
 }
 
-variable "connection_variance_aggregator" {
+variable "connection_variance_time_aggregator" {
   description = "Monitor aggregator for connection variance [available values: min, max or avg]"
   type        = string
   default     = "avg"
