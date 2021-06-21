@@ -199,12 +199,6 @@ variable "connection_variance_extra_tags" {
   type        = list(string)
   default     = []
 }
-variable "connection_variance_aggregator" {
-  description = "Monitor aggregator for RDS free diskspace [available values: min, max or avg]"
-  type        = string
-  default     = "avg"
-}
-
 variable "connection_variance_message" {
   description = "Custom message for RDS CPU usage monitor"
   type        = string
@@ -212,7 +206,7 @@ variable "connection_variance_message" {
 }
 
 variable "connection_variance_aggregator" {
-  description = "Monitor aggregator for connectino variance [available values: min, max or avg]"
+  description = "Monitor aggregator for connection variance [available values: min, max or avg]"
   type        = string
   default     = "avg"
 }
