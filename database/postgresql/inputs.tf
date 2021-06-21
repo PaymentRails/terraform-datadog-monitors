@@ -203,3 +203,9 @@ variable "postgresql_disk_queue_extra_tags" {
   type        = list(string)
   default     = []
 }
+
+variable "postgresql_disk_queue_message" {
+  description = "Custom message for PostgreSQL disk queue monitor"
+  type        = string
+  default     = ""
+}
