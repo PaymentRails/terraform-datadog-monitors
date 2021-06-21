@@ -92,7 +92,7 @@ EOQ
 
 ### RDS connection variance ###
 resource "datadog_monitor" "rds_connection_variance" {
-  count   = var.connection_variance ? 1 : 0
+  count   = var.connection_variance_enabled ? 1 : 0
   name    = "${var.prefix_slug == "" ? "" : "[${var.prefix_slug}]"}[${var.environment}] RDS connection variance {{#is_alert}}{{{comparator}}} {{threshold}} ms ({{value}}ms){{/is_alert}}{{#is_warning}}{{{comparator}}} {{warn_threshold}} ms ({{value}}ms){{/is_warning}}"
   message = coalesce(var.connection_variance_message, var.message)
   type    = "query alert"

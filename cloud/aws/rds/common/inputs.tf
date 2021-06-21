@@ -204,3 +204,15 @@ variable "connection_variance_aggregator" {
   type        = string
   default     = "avg"
 }
+
+variable "connection_variance_message" {
+  description = "Custom message for RDS CPU usage monitor"
+  type        = string
+  default     = ""
+}
+
+variable "connection_variance_aggregator" {
+  description = "Monitor aggregator for connectino variance [available values: min, max or avg]"
+  type        = string
+  default     = "avg"
+}
